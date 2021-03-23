@@ -1,0 +1,87 @@
+    1  yum install mod_dav_svn subversion
+    2  vi /etc/httpd/conf.d/subversion.conf
+    3  cd /var/www/html/svn
+    4  cd /var/www/html
+    5  ls
+    6  yum install mod_dav_svn subversion
+    7  mkdir svn
+    8  cd svn/
+    9  svnadmin create myfirstrepo
+   10  chown -R apache.apache myfirstrepo
+   11  htpasswd -cm /etc/svn-auth-users admin
+   12  service httpd restart
+   13  cat /etc/httpd/conf.d/subversion.conf
+   14  mkdir /var/www/svn
+   15  mkdir /var/www/svn-auth
+   16  cat /etc/httpd/conf.d/subversion.conf
+   17  vi /etc/httpd/conf.d/subversion.conf
+   18  sudo vi /var/www/svn-auth/access
+   19  sudo htpasswd -cb /var/www/svn-auth/passwd admin admin
+   20  cd /var/www/svn
+   21  sudo svnadmin create project1
+   22  sudo chown -R apache.apache /var/www/svn /var/wwws/vn-auth
+   23  yum install mod_dav_svn subversion
+   24  sudo chown -R apache.apache /var/www/svn /var/www/vn-auth
+   25  sudo chown -R apache.apache /var/www/svn /var/www/svn-auth
+   26  chmod 600 /var/wwws/vn-auth/access /var/www/svn-auth/passwd
+   27  chmod 600 /var/www/svn-auth/access /var/www/svn-auth/passwd
+   28  sudo service httpd start
+   29  svn ls http://13.233.232.242/repos/project1
+   30  clear
+   31  cd
+   32  sudo service httpd restart
+   33  svn ls http://13.233.232.242/repos/project1
+   34  clear
+   35  svn ls http://13.233.232.242/repos/project1/
+   36  mkdir testrepo
+   37  cd testrepo/
+   38  touch 1
+   39  touch 2 3 4 5 6 7 8
+   40  echo "testing" > 1 2 3 4 5 6 7 8
+   41  cat 1
+   42  cat 3
+   43  echo "testing" > 2 3 4 5 6 7 8
+   44  echo "testing" > 3 4 5 6 7 8
+   45  echo "testing" > 4 5 6 7 8
+   46  echo "testing" > 5 6 7 8
+   47  echo "testing" > 6 7 8
+   48  echo "testing" > 7 8
+   49  echo "testing" > 8
+   50  svn import -m "Initial import." . http://13.233.232.242/repos/project1/
+   51  cd 
+   52  mkdir exportrepo
+   53  yum install git -y
+   54  git svn clone --stdlayout --authors-file=authors.txt http://13.233.232.242/repos/project1/ admin
+   55  java -jar ~/svn-migration-scripts.jar verify
+   56  yum install java-1.8.0-openjdk-devel
+   57  java -jar ~/svn-migration-scripts.jar verify
+   58  curl https://bitbucket.org/atlassian/svn-migration-scripts/downloads/svn-migration-scripts.jar
+   59  ls
+   60  wget https://bitbucket.org/atlassian/svn-migration-scripts/downloads/svn-migration-scripts.jar
+   61  ls
+   62  java -jar ~/svn-migration-scripts.jar verify
+   63  yum install git-svn -y
+   64  java -jar ~/svn-migration-scripts.jar verify
+   65  git svn clone --stdlayout --authors-file=authors.txt http://13.233.232.242/repos/project1/ gitsvnrepo
+   66  git svn clone --trunk=/trunk --branches=/branches 
+   67  git svn clone --trunk=/trunk --branches=/branches --branches=/bugfixes --tags=/tags --authors-file=authors.txt http://13.233.232.242/repos/project1/ gitsvnrepo
+   68  s
+   69  ls
+   70  cd testrepo/
+   71  ls
+   72  vi authors.txt
+   73  svn import -m "second import." . http://13.233.232.242/repos/project1/
+   74  svn import -m "second import." authors.txt http://13.233.232.242/repos/project1/
+   75  svn commit 
+   76  svn import -m "second import." authors.txt http://13.233.232.242/repos/project1/
+   77  svn import -m "second import." /authors.txt http://13.233.232.242/repos/project1/
+   78  cd
+   79  mkdir authors
+   80  cp ~/testrepo/authors.txt .
+   81  svn import -m "second import." . http://13.233.232.242/repos/project1/
+   82  mkdir gitsvn
+   83  cd gitsvn/
+   84  git svn clone --trunk=/trunk --branches=/branches 
+   85  git svn clone --trunk=/trunk --branches=/branches --branches=/bugfixes --tags=/tags --authors-file=authors.txt http://13.233.232.242/repos/project1/ gitsvnrepo
+   86  history
+   87  history > history.txt
